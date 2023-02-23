@@ -1,8 +1,8 @@
 import torch.utils.data
 import torch.nn as nn
 import torchvision
-import imodel
-import fmodel
+import NetA
+import NetB
 import utils
 import data_loader
 import warnings
@@ -109,10 +109,10 @@ path = '/projects/dataset/'
 testloader = DatasFolder(root=path, phase='test')
 
 
-netfG = fmodel.Generator()
+netfG = NetA.Generator()
 netfG = nn.DataParallel(netfG, device_ids=[0,1], output_device=0)
 
-netiG = imodel.Generator()
+netiG = NetB.Generator()
 netiG = nn.DataParallel(netiG, device_ids=[0,1], output_device=0)
 
 netfG.to(device)
