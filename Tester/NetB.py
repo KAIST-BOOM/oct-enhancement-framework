@@ -2,22 +2,8 @@ import math
 import torch
 from torch import nn
 
-'''
-Ref. ESRGAN
-
-Fringe size : 1300 per aline
-Input : 1x1300x14
-Output : 1x1300x1
-//
-Fringe size : 850 per aline
-Input : 1x1300x10
-Output : 1x1300x1
-
-'''
-
 class Generator(nn.Module):
     def __init__(self, n_basic_block=4):
-        ''' 4-Aline's Amplification of Spectrogram Generator '''
         super(Generator, self).__init__()
         self.layer1 = nn.Sequential(
             nn.Conv2d(2, 64, kernel_size=3, stride=1, padding=1, bias=False),
