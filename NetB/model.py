@@ -2,8 +2,6 @@ import math
 import torch
 from torch import nn
 
-'''Ref. ESRGAN'''
-
 class Generator(nn.Module):
     def __init__(self, n_basic_block=8):
         super(Generator, self).__init__()
